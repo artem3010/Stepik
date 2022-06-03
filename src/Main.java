@@ -6,6 +6,7 @@ public class Main {
 
         System.out.print("Введите булевы значения: ");
         Scanner in = new Scanner(System.in);
+
         boolean a = Boolean.parseBoolean(in.nextLine());
         boolean b = Boolean.parseBoolean(in.nextLine());
         boolean c = Boolean.parseBoolean(in.nextLine());
@@ -17,6 +18,12 @@ public class Main {
         return (a ^ b)&(c ^  d) || (a ^  c) & (b ^  d);
     }
 }
+        int year = Integer.parseInt(in.nextLine());
+        int res  = Main.leapYearCount(year);
+        System.out.println(res);
+    }
+    public static int leapYearCount(int year) {
+        return year/4 - year/100 + year/400;
         Scanner in = new Scanner(System.in);
         int value = Integer.parseInt(in.nextLine());
         BigInteger res = Main.factorial(value);
