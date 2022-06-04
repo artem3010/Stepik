@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class Main {
     public static void moveRobot(Robot robot, int toX, int toY) {
-        Scanner in = new Scanner(System.in);
         toX = new Scanner(System.in).nextInt();
         toY = new Scanner(System.in).nextInt();
         if (robot.getY() < toY) {
