@@ -1,20 +1,14 @@
-abstract class KeywordAnalyzer implements TextAnalyzer {
+abstract class KeywordAnalyzer implements TextAnalyzer{
+    abstract protected String[] getKeywords();
+    abstract protected Label getLabel();
 
-    @Override
     public Label processText(String text) {
-        boolean boolLabel = false;
-        for(String keyword: this.getKeywords())
-        {
-            if(text.contains(keyword))
-            {
-                boolLabel = true;
-                break;
+        //String[] keywords = getKeywords();
+        for (String keyword : this.getKeywords()) {
+            if (text.indexOf(keyword) > -1) {
+                return getLabel();
             }
         }
-        return boolLabel ? Label.SPAM : Label.OK;
+        return Label.OK;
     }
-
-    abstract protected String[] getKeywords();
-
-    abstract protected Label getLabel();
 }

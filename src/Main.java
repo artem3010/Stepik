@@ -3,13 +3,15 @@ import  java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
+        String text = "В конце концов это завершилось :(";
+
         String[] negative = {"хуй","пизда"};
         TextAnalyzer[] analyzers = {
-                new TooLongTextAnalyzer(1000)
+                new TooLongTextAnalyzer(100)
                 , new NegativeTextAnalyzer()
                 , new SpamAnalyzer(negative)};
 
-        String text = String.valueOf(new Scanner(System.in));
+
 
         switch (checkLabels(analyzers, text)){
             case NEGATIVE_TEXT:

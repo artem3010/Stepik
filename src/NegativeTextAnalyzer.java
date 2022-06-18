@@ -1,27 +1,19 @@
-public class NegativeTextAnalyzer extends  KeywordAnalyzer {
-    private String[] keywords = new String[]{":(","=(",":|"};
-    protected Label label;
+class NegativeTextAnalyzer extends KeywordAnalyzer {
 
-    @Override
-    public Label processText(String text) {
-        if (super.processText(text) != Label.OK)
-        {
-            this.label = Label.NEGATIVE_TEXT;
-            return this.getLabel();
-        }
-        else {
-            this.label = Label.OK;
-            return this.getLabel();
-        }
+    private final String[] keywords;
+
+    NegativeTextAnalyzer() {
+        keywords  = new String[] {":(", "=(", ":|", ";("};
     }
 
     @Override
     protected String[] getKeywords() {
-        return new String[0];
+        return keywords;
     }
 
     @Override
     protected Label getLabel() {
-        return null;
+        return Label.NEGATIVE_TEXT;
     }
+
 }
